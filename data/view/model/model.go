@@ -75,7 +75,7 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 
 	for _, v := range cols {
 		var tmp genstruct.GenElement
-		var isPK bool
+		//var isPK bool
 		if strings.EqualFold(v.Type, "gorm.Model") { // gorm model
 			tmp.SetType(v.Type) //
 		} else {
@@ -87,7 +87,7 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 				// case ColumnsKeyDefault:
 				case ColumnsKeyPrimary: // primary key.主键
 					tmp.AddTag(_tagGorm, "primary_key")
-					isPK = true
+					//isPK = true
 				case ColumnsKeyUnique: // unique key.唯一索引
 					tmp.AddTag(_tagGorm, "unique")
 				case ColumnsKeyIndex: // index key.复合索引
@@ -110,11 +110,12 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 
 			// json tag
 			if config.GetIsWEBTag() {
-				if isPK && config.GetIsWebTagPkHidden() {
-					tmp.AddTag(_tagJSON, "-")
-				} else {
-					tmp.AddTag(_tagJSON, mybigcamel.UnMarshal(v.Name))
-				}
+				tmp.AddTag(_tagJSON, v.Name)
+				//if isPK && config.GetIsWebTagPkHidden() {
+				//	tmp.AddTag(_tagJSON, "-")
+				//} else {
+				//	tmp.AddTag(_tagJSON, mybigcamel.UnMarshal(v.Name))
+				//}
 			}
 		}
 
