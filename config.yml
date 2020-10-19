@@ -5,7 +5,7 @@ mysql_info:
     port: 3306
     username: test_write
     password: Q^pI&Vq!Hf9FokCm
-    database: med_primary
+    database: med_d2d
 out_dir: ./model
 url_tag: json
 language: 中 文

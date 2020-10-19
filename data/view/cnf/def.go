@@ -10,8 +10,8 @@ var EImportsHead = map[string]string{
 
 // TypeMysqlDicMp Accurate matching type.精确匹配类型
 var TypeMysqlDicMp = map[string]string{
-	"smallint":            "int16",
-	"smallint unsigned":   "uint16",
+	"smallint":            "int",
+	"smallint unsigned":   "uint",
 	"int":                 "int",
 	"int unsigned":        "uint",
 	"bigint":              "int64",
@@ -20,11 +20,11 @@ var TypeMysqlDicMp = map[string]string{
 	"char":                "string",
 	"date":                "time.Time",
 	"datetime":            "time.Time",
-	"bit(1)":              "[]uint8",
-	"tinyint":             "int8",
-	"tinyint unsigned":    "uint8",
-	"tinyint(1)":          "int8", // tinyint(1) 默认设置成bool
-	"tinyint(1) unsigned": "uint8", // tinyint(1) 默认设置成bool
+	"bit(1)":              "[]uint",
+	"tinyint":             "int",
+	"tinyint unsigned":    "uint",
+	"tinyint(1)":          "int", // tinyint(1) 默认设置成bool
+	"tinyint(1) unsigned": "uint", // tinyint(1) 默认设置成bool
 	"json":                "string",
 	"text":                "string",
 	"timestamp":           "time.Time",
@@ -44,9 +44,9 @@ var TypeMysqlDicMp = map[string]string{
 
 // TypeMysqlMatchMp Fuzzy Matching Types.模糊匹配类型
 var TypeMysqlMatchMp = map[string]string{
-	`^(tinyint)[(]\d+[)]`:            "int8",
-	`^(tinyint)[(]\d+[)] unsigned`:   "uint8",
-	`^(smallint)[(]\d+[)]`:           "int16",
+	`^(tinyint)[(]\d+[)]`:            "int",
+	`^(tinyint)[(]\d+[)] unsigned`:   "uint",
+	`^(smallint)[(]\d+[)]`:           "int",
 	`^(int)[(]\d+[)]`:                "int",
 	`^(bigint)[(]\d+[)]`:             "int64",
 	`^(char)[(]\d+[)]`:               "string",
@@ -60,5 +60,5 @@ var TypeMysqlMatchMp = map[string]string{
 	`^(float)[(]\d+,\d+[)]`:          "float64",
 	`^(float)[(]\d+,\d+[)] unsigned`: "float64",
 	`^(datetime)[(]\d+[)]`:           "time.Time",
-	`^(bit)[(]\d+[)]`:                "[]uint8",
+	`^(bit)[(]\d+[)]`:                "[]uint",
 }
